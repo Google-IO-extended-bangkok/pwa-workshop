@@ -1,0 +1,13 @@
+{
+  "name": "demo-cache-pre-cache",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "sw-precache": "^3.2.0",
+    "sw-toolbox": "^3.2.1"
+  },
+  "devDependencies": {},
+  "author": "Warat Wongmaneekit <canopybanj@gmail.com> (http://thangis.me)",
+  "license": "ISC"
+}

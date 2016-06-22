@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Demo5 - Notification</title>
+    <link rel="stylesheet" href="asset/materialize.min.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Demo5 - Notification</a>
+        </div>
+    </nav>
+    <div class="row section">
+        <div class="col s12 m12">
+            <button class="waves-effect waves-light btn push-button" id="sub" style="display: none;" onclick="SubscribePush()">Subscribe</button>
+            <button class="waves-effect waves-light btn push-button" id="unsub" style="display: none;" onclick="unSubscribePush()">UnSubscribe</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m12">
+            <div class="card">
+                <div class="card-image">
+                    <img src="asset/sample-1.jpg">
+                    <span class="card-title">Hello</span>
+                </div>
+                <div class="card-content">
+                    <p>Hello every on in Google I/O Bangkok</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="asset/jquery-3.0.0.min.js" crossorigin="anonymous"></script>
+    <script src="asset/materialize.min.js"></script>
+    <script type="text/javascript">
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+            .register('service-worker.js')
+            .then((reg) => {
+                console.log("Service Worker Registered");
+                SubscribePush();
+
+            }).catch((err) => {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        navigator.serviceWorker.ready.then((registration) => {
+            console.log('Service Worker Ready');
+        });
+    }
+
+    function SubscribePush() {
+        navigator.serviceWorker.ready.then((reg) => {
+            reg.pushManager.subscribe({
+                userVisibleOnly: true
+            }).then((sub) => {
+                $(".push-button").hide();
+                $("#unsub").show();
+                console.log('endpoint:', sub.endpoint);
+            });
+        });
+    }
+
+    function unSubscribePush() {
+        navigator.serviceWorker.ready.then((reg) => {
+            reg.pushManager.getSubscription().then((subscription) => {
+                subscription.unsubscribe().then((sub) => {
+                    $(".push-button").hide();
+                    $("#sub").show();
+                    console.log("Successfully unsubscribed");
+                });
+            });
+        });
+    }
+    </script>
+</body>
+
+</html>

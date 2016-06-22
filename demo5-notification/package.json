@@ -1,0 +1,11 @@
+{
+  "name": "demo-notification",
+  "version": "1.0.0",
+  "description": "",
+  "main": "service-worker.js",
+  "author": "Warat Wongmaneekit <canopybanj@gmail.com> (http://thangis.me)",
+  "license": "ISC",
+  "dependencies": {
+    "node-gcm": "^0.14.3"
+  }
+}

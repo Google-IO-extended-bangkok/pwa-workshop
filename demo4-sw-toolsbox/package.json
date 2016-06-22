@@ -1,0 +1,10 @@
+{
+  "name": "demo-sw-toolsbox",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "sw-toolbox": "^3.2.1"
+  },
+  "author": "Warat Wongmaneekit <canopybanj@gmail.com> (http://thangis.me)",
+  "license": "ISC"
+}

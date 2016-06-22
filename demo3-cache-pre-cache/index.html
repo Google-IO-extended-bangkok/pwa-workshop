@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Demo3 - Pre-Cache</title>
+    <link rel="stylesheet" href="asset/materialize.min.css">
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Demo3 - Pre-Cache</a>
+        </div>
+    </nav>
+    <div class="row">
+        <div class="col s12 m7">
+            <div class="card">
+                <div class="card-image">
+                    <img src="asset/sample-1.jpg">
+                    <span class="card-title">Hello</span>
+                </div>
+                <div class="card-content">
+                    <p>Hello every on in Google I/O Bangkok</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="asset/jquery-3.0.0.min.js" crossorigin="anonymous"></script>
+    <script src="asset/materialize.min.js"></script>
+    <script type="text/javascript">
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+            .register('service-worker.js')
+            .then(() => {
+                console.log("Service Worker Registered");
+            }).catch((err) => {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        navigator.serviceWorker.ready.then((registration) => {
+            console.log('Service Worker Ready');
+        });
+    }
+    </script>
+</body>
+
+</html>
