@@ -30,8 +30,10 @@ self.addEventListener("activate", (event) => {
         caches.keys()
         .then((allCaches) => {
             allCaches.map((cacheName) => {
-                console.log("Delete cache. " + cacheName);
-                return caches.delete(cacheName);
+                if (cacheName !== 'demo') {
+                    console.log("Delete cache. " + cacheName);
+                    return caches.delete(cacheName);
+                }
             });
         })
     );
